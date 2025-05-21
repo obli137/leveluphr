@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-dark-500 antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl xl:text-6xl leading-tight;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl leading-snug;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl leading-snug;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-500 text-dark-500 hover:bg-primary-600 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-dark-500 text-white hover:bg-dark-600 focus:ring-dark-500;
+  }
+  
+  .btn-outline {
+    @apply btn border-2 border-primary-500 text-dark-500 hover:bg-primary-50 focus:ring-primary-500;
+  }
+  
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+.team-calculator-slider {
+  vertical-align: middle;
+  margin-top: -12px;
+}
+
+.team-calculator-slider::-webkit-slider-thumb {
+  @apply appearance-none h-6 w-6 rounded-full bg-primary-500 cursor-pointer;
+}
+
+.team-calculator-slider::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 9999px;
+}
+
+.team-calculator-slider::-moz-range-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 9999px;
+  background: #c6d32e;
+  cursor: pointer;
+}
+
+.team-calculator-slider::-moz-range-track {
+  height: 8px;
+  border-radius: 9999px;
+}
+
+.team-calculator-slider::-ms-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 9999px;
+  background: #c6d32e;
+  cursor: pointer;
+}
+
+.team-calculator-slider::-ms-fill-lower,
+.team-calculator-slider::-ms-fill-upper {
+  height: 8px;
+  border-radius: 9999px;
+}
