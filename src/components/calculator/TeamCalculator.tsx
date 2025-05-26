@@ -258,4 +258,137 @@ const TeamCalculator: React.FC = () => {
   );
 };
 
-export default TeamCalculator;
+// Direct Hire Calculator Section
+const directHireRoles = [
+  'AI Engineer',
+  'Machine Learning Engineer',
+  'Frontend Developer',
+  'Backend Developer',
+  'UI/UX Designer',
+  'Project Manager',
+  'QA Manual Engineer',
+  'QA Automation Engineer',
+  'DevOps Engineer',
+  'Cloud Architect',
+  'Software Architect',
+  'AI Tech Lead',
+];
+
+const DirectHireCalculator: React.FC = () => {
+  const [role, setRole] = useState('AI Engineer');
+  const [yearlyBudget, setYearlyBudget] = useState('');
+  const [roles, setRoles] = useState<{ role: string; yearlyBudget: number }[]>([]);
+
+  const addRole = () => {
+    if (!role || !yearlyBudget || isNaN(Number(yearlyBudget)) || Number(yearlyBudget) <= 0) return;
+    setRoles([...roles, { role, yearlyBudget: Number(yearlyBudget) }]);
+    setYearlyBudget('');
+  };
+
+  const removeRole = (idx: number) => {
+    setRoles(roles.filter((_, i) => i !== idx));
+  };
+
+  const updateRoleBudget = (idx: number, value: string) => {
+    const updated = [...roles];
+    updated[idx].yearlyBudget = Number(value);
+    setRoles(updated);
+  };
+
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
+  };
+
+  const totalFee = roles.reduce((sum, r) => sum + r.yearlyBudget * 0.12, 0);
+
+  return (
+    <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 mt-16">
+      <h2 className="text-2xl font-bold mb-4">Direct Hire Calculator</h2>
+      <p className="text-gray-600 mb-6">Estimate our direct hire fee for your desired roles and yearly budgets.</p>
+      <div className="mb-8">
+        <label className="block text-lg font-medium text-gray-700 mb-2">Add Role</label>
+        <div className="flex gap-2">
+          <select
+            className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+            value={role}
+            onChange={e => setRole(e.target.value)}
+          >
+            {directHireRoles.map(r => (
+              <option key={r} value={r}>{r}</option>
+            ))}
+          </select>
+          <input
+            type="number"
+            min="0"
+            step="1000"
+            className="w-40 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+            placeholder="Yearly budget"
+            value={yearlyBudget}
+            onChange={e => setYearlyBudget(e.target.value)}
+          />
+          <button
+            type="button"
+            className="px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors flex items-center"
+            onClick={addRole}
+            disabled={!role || !yearlyBudget || isNaN(Number(yearlyBudget)) || Number(yearlyBudget) <= 0}
+          >
+            +
+          </button>
+        </div>
+      </div>
+      <div className="bg-gray-50 p-6 rounded-lg">
+        <h3 className="text-lg font-semibold mb-4">Selected Roles</h3>
+        {roles.length === 0 ? (
+          <p className="text-gray-500 text-center py-4">No roles added yet</p>
+        ) : (
+          <div className="space-y-4">
+            {roles.map((r, idx) => (
+              <div key={idx} className="bg-white p-4 rounded-lg shadow-sm flex flex-col md:flex-row md:items-center md:justify-between">
+                <div>
+                  <p className="font-medium">{r.role}</p>
+                  <div className="flex items-center gap-2 mt-1">
+                    <label className="text-sm text-gray-600">Yearly Budget:</label>
+                    <input
+                      type="number"
+                      min="0"
+                      step="1000"
+                      className="w-32 px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                      value={r.yearlyBudget}
+                      onChange={e => updateRoleBudget(idx, e.target.value)}
+                    />
+                  </div>
+                  <p className="text-sm text-primary-700 font-semibold mt-1">
+                    Fee: {formatCurrency(r.yearlyBudget * 0.12)} <span className="text-gray-500 font-normal">(12%)</span>
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  className="text-red-500 hover:text-red-700 text-sm mt-2 md:mt-0"
+                  onClick={() => removeRole(idx)}
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="mt-6 text-lg font-semibold text-primary-600">
+        Total Estimated Fee: {formatCurrency(totalFee)} <span className="text-gray-500 text-base font-normal">(12% of yearly budgets)</span>
+      </div>
+    </div>
+  );
+};
+
+const CombinedCalculator: React.FC = () => (
+  <>
+    <div>
+      {/* Staff Augmentation Calculator (existing) */}
+      <TeamCalculator />
+      {/* Direct Hire Calculator (new) */}
+      <DirectHireCalculator />
+    </div>
+  </>
+);
+
+export default CombinedCalculator;

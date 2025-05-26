@@ -38,23 +38,6 @@ const HeroSection: React.FC = () => {
                 </Link>
               </div>
             </ScrollReveal>
-            
-            <ScrollReveal delay={0.6}>
-              <div className="mt-10 flex items-center">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-medium">
-                      {i}
-                    </div>
-                  ))}
-                </div>
-                <div className="ml-4">
-                  <p className="text-dark-500 font-medium">
-                    Trusted by 200+ clients worldwide
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
           </div>
           
           <div className="w-full lg:w-1/2">
