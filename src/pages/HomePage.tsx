@@ -5,6 +5,7 @@ import AboutSection from '../components/home/AboutSection';
 import FAQ from '../components/home/FAQ';
 import ContactSection from '../components/home/ContactSection';
 import ClientLogosCarousel from '../components/home/ClientLogosCarousel';
+import TechLogosCarousel from '../components/home/TechLogosCarousel';
 
 const HomePage: React.FC = () => {
   return (

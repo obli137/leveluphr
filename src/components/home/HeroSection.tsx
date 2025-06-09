@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import ScrollReveal from '../common/ScrollReveal';
+import AnimatedCounter from '../common/AnimatedCounter';
 
 const HeroSection: React.FC = () => {
   return (
@@ -46,15 +47,17 @@ const HeroSection: React.FC = () => {
                 <div className="relative bg-white rounded-2xl shadow-xl p-6 md:p-8 z-10">
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { title: 'Web Dev', value: '25+', color: 'bg-primary-100' },
-                      { title: 'Mobile Apps', value: '40+', color: 'bg-secondary-100' },
-                      { title: 'Team Members', value: '75+', color: 'bg-blue-100' },
-                      { title: 'Countries', value: '12+', color: 'bg-green-100' }
+                      { title: 'Engineers Hired', value: 500, suffix: '+', color: 'bg-primary-100' },
+                      { title: 'Clients', value: 30, suffix: '+', color: 'bg-secondary-100' },
+                      { title: 'Countries', value: 10, suffix: '+', color: 'bg-blue-100' },
+                      { title: 'Specialities', value: 20, suffix: '+', color: 'bg-green-100' }
                     ].map((stat, i) => (
                       <ScrollReveal key={i} delay={0.4 + i * 0.1}>
                         <div className={`${stat.color} p-4 rounded-lg`}>
                           <p className="text-sm text-dark-400">{stat.title}</p>
-                          <p className="text-2xl font-bold text-dark-500">{stat.value}</p>
+                          <p className="text-2xl font-bold text-dark-500">
+                            <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                          </p>
                         </div>
                       </ScrollReveal>
                     ))}
@@ -64,7 +67,7 @@ const HeroSection: React.FC = () => {
                     <div className="mt-6 pt-6 border-t border-gray-100">
                       <h3 className="text-lg font-medium text-dark-500 mb-3">Tech expertise</h3>
                       <div className="flex flex-wrap gap-2">
-                        {['React', 'Node.js', 'Python', 'Computer Vision', 'NLP', 'LLM', 'TypeScript'].map((tech, i) => (
+                        {['AI', 'Machine Learning', 'Data Science', 'NLP', 'LLMs', 'DevOps', 'AWS', 'GCP', 'Azure', 'Software Development', 'Mobile Development', 'Salesforce', 'SAP', 'ServiceNow'].map((tech, i) => (
                           <ScrollReveal key={i} delay={0.9 + i * 0.1}>
                             <span className="px-3 py-1 bg-gray-100 text-dark-400 rounded-full text-sm">
                               {tech}

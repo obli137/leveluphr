@@ -44,11 +44,9 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-semibold mb-6">Services</h3>
             <ul className="space-y-4">
-              <li><Link to="/services" className="text-gray-300 hover:text-primary-400 transition-colors">Web Development</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-primary-400 transition-colors">Mobile Applications</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-primary-400 transition-colors">Cloud Solutions</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-primary-400 transition-colors">DevOps & Architecture</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-primary-400 transition-colors">UI/UX Design</Link></li>
+              <li><Link to="/services" className="text-gray-300 hover:text-primary-400 transition-colors">Staff Augmentation</Link></li>
+              <li><Link to="/services" className="text-gray-300 hover:text-primary-400 transition-colors">Direct Hire</Link></li>
+              <li><Link to="/services" className="text-gray-300 hover:text-primary-400 transition-colors">Fast MVP</Link></li>
             </ul>
           </div>
           
