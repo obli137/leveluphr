@@ -76,9 +76,9 @@ const ServicesSection: React.FC = () => {
         <div className="container-custom">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="mb-4">Expertise Areas</h2>
+              <h2 className="mb-4">Specialized Talent Areas</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                We provide end-to-end technology solutions with a focus on AI, Machine Learning, and Data Engineering expertise.
+                We connect you with exceptional AI, Machine Learning, and Data Engineering professionals for your staff augmentation and direct hire needs.
               </p>
             </div>
           </ScrollReveal>
