@@ -1,5 +1,7 @@
 import { Resend } from 'resend';
 
+declare const process: { env: Record<string, string | undefined> };
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const TO_INBOX = 'info@hrlevel-up.com';
