@@ -25,11 +25,23 @@ const ContactSection: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
-
-    setTimeout(() => {
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          source: 'home',
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setFormStatus('error');
+        return;
+      }
       setFormStatus('success');
       setFormData({
         name: '',
@@ -39,7 +51,9 @@ const ContactSection: React.FC = () => {
         interest: '',
         message: '',
       });
-    }, 1500);
+    } catch {
+      setFormStatus('error');
+    }
   };
 
   const inputClasses = "mt-1 block w-full rounded-md bg-dark-600 border-dark-300 text-white shadow-sm focus:border-primary-500 focus:ring focus:ring-primary-500 focus:ring-opacity-50 py-3 px-4";
@@ -101,8 +115,15 @@ const ContactSection: React.FC = () => {
                 </div>
                 <h3 className="text-lg font-medium text-white mb-2">Recibí tu solicitud</h3>
                 <p className="text-gray-300">
-                  Te voy a contactar a la brevedad para coordinar la conversación.
+                  Te enviamos un email de confirmación. En breve nos pondremos en contacto.
                 </p>
+              </div>
+            ) : formStatus === 'error' ? (
+              <div className="text-center py-8">
+                <p className="text-red-300 mb-4">Hubo un error al enviar. Probá de nuevo o escribinos a info@hrlevel-up.com</p>
+                <button type="button" onClick={() => setFormStatus('idle')} className="btn-outline text-white border-white hover:bg-white/10">
+                  Reintentar
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
