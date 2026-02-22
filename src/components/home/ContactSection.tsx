@@ -28,6 +28,8 @@ const ContactSection: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 20000);
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -36,8 +38,10 @@ const ContactSection: React.FC = () => {
           ...formData,
           source: 'home',
         }),
+        signal: controller.signal,
       });
-      const data = await res.json().catch(() => ({}));
+      clearTimeout(timeoutId);
+      await res.json().catch(() => ({}));
       if (!res.ok) {
         setFormStatus('error');
         return;
@@ -52,6 +56,7 @@ const ContactSection: React.FC = () => {
         message: '',
       });
     } catch {
+      clearTimeout(timeoutId);
       setFormStatus('error');
     }
   };

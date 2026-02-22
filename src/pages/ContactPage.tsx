@@ -23,6 +23,8 @@ const ContactPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 20000);
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -31,14 +33,18 @@ const ContactPage: React.FC = () => {
           ...formData,
           source: 'contact',
         }),
+        signal: controller.signal,
       });
+      clearTimeout(timeoutId);
       if (!res.ok) {
         setFormStatus('error');
         return;
       }
+      await res.json().catch(() => ({}));
       setFormStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch {
+      clearTimeout(timeoutId);
       setFormStatus('error');
     }
   };
