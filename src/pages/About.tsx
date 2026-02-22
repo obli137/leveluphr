@@ -1,192 +1,197 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Users, Target, Award, Globe, Clock, Shield, Briefcase, Building2, Rocket } from 'lucide-react';
-import ContactForm from '../components/common/ContactForm';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import ScrollReveal from '../components/common/ScrollReveal';
+import ProfileImagePlaceholder from '../components/common/ProfileImagePlaceholder';
+import { Check } from 'lucide-react';
+
+/** Logo oficial de LinkedIn (estilo de marca: azul #0A66C2) */
+const LinkedInLogo: React.FC<{ size?: number; className?: string }> = ({ size = 32, className = '' }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    className={className}
+    aria-hidden
+  >
+    <path
+      fill="currentColor"
+      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+    />
+  </svg>
+);
 
 const About: React.FC = () => {
-  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <div className="bg-primary-50 py-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Flexible Tech Talent Solutions
-            </h1>
-            <p className="text-xl text-gray-600">
-              From permanent hires and staff augmentation to rapid MVP development with no-code solutions, we provide comprehensive tech services across Latin America and the United States.
-            </p>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Our Story Section */}
-      <div className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Story</h2>
-              <div className="prose prose-lg">
-                <p className="mb-6">
-                  Founded in 2023 by Mariano Obligado, Level Up emerged from a vision to bridge the talent gap in the tech industry. With over 15 years of experience in technology and business development, Mariano recognized the growing demand for skilled tech professionals and the untapped potential of Latin American talent.
-                </p>
-                <p className="mb-6">
-                  Mariano's journey in tech began at Mercado Libre, where he played a pivotal role in scaling the company's operations across Latin America. His experience in building and leading high-performing teams gave him unique insights into what makes successful tech organizations tick. After his tenure at Mercado Libre, he went on to found and lead several successful tech ventures, including a prominent software development company that served clients across the Americas.
-                </p>
-                <p className="mb-6">
-                  This rich background in both technology and business development inspired Mariano to create Level Up. His vision was clear: to build a recruitment agency that not only matches talent with opportunities but also understands the unique challenges and opportunities in the tech industry, offering both permanent and flexible staffing solutions.
-                </p>
+      {/* 1) Hero – Personal brand focus */}
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-gray-50">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <ScrollReveal>
+              <div className="flex items-center gap-3 mb-4">
+                <h1 className="text-4xl md:text-5xl font-display font-semibold text-dark-500">
+                  Mariano Obligado
+                </h1>
+                <a
+                  href="https://www.linkedin.com/in/marianoobligado/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 text-[#0A66C2] hover:text-[#004182] transition-colors"
+                  aria-label="LinkedIn de Mariano Obligado"
+                >
+                  <LinkedInLogo size={32} />
+                </a>
               </div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-      {/* What We Do Section */}
-      <div className="bg-gray-50 py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Services</h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <div className="flex items-center mb-4">
-                    <Briefcase className="w-8 h-8 text-primary-500 mr-3" />
-                    <h3 className="text-xl font-semibold text-gray-900">Direct Hire</h3>
-                  </div>
-                  <p className="text-gray-600">
-                    We help you build your permanent team by finding the perfect long-term tech talent that aligns with your company's culture and goals.
-                  </p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <div className="flex items-center mb-4">
-                    <Building2 className="w-8 h-8 text-primary-500 mr-3" />
-                    <h3 className="text-xl font-semibold text-gray-900">Staff Augmentation</h3>
-                  </div>
-                  <p className="text-gray-600">
-                    Scale your team quickly with our flexible staffing solutions, perfect for project-based work or temporary resource needs.
-                  </p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <div className="flex items-center mb-4">
-                    <Rocket className="w-8 h-8 text-primary-500 mr-3" />
-                    <h3 className="text-xl font-semibold text-gray-900">Fast MVP with No Code</h3>
-                  </div>
-                  <p className="text-gray-600">
-                    Launch your product quickly using no-code solutions, perfect for validating ideas and getting to market faster.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-      {/* Why Choose Us Section */}
-      <div className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Why Choose Level Up</h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="flex flex-col items-center text-center p-6">
-                  <Award className="w-12 h-12 text-primary-500 mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Expert Vetting</h3>
-                  <p className="text-gray-600">
-                    Rigorous screening process ensures only top-tier talent reaches your team.
-                  </p>
-                </div>
-                <div className="flex flex-col items-center text-center p-6">
-                  <Globe className="w-12 h-12 text-primary-500 mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Global Network</h3>
-                  <p className="text-gray-600">
-                    Access to talent pools across Latin America and the United States.
-                  </p>
-                </div>
-                <div className="flex flex-col items-center text-center p-6">
-                  <Clock className="w-12 h-12 text-primary-500 mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Quick Turnaround</h3>
-                  <p className="text-gray-600">
-                    Fast deployment for both permanent hires and temporary staffing needs.
-                  </p>
-                </div>
-                <div className="flex flex-col items-center text-center p-6">
-                  <Shield className="w-12 h-12 text-primary-500 mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Quality Guarantee</h3>
-                  <p className="text-gray-600">
-                    We stand behind our placements with a satisfaction guarantee for all services.
-                  </p>
-                </div>
-                <div className="flex flex-col items-center text-center p-6">
-                  <Users className="w-12 h-12 text-primary-500 mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Flexible Solutions</h3>
-                  <p className="text-gray-600">
-                    Customized staffing solutions to match your specific needs and timeline.
-                  </p>
-                </div>
-                <div className="flex flex-col items-center text-center p-6">
-                  <Target className="w-12 h-12 text-primary-500 mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Specialized Focus</h3>
-                  <p className="text-gray-600">
-                    Deep expertise in tech recruitment across multiple engagement models.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="bg-primary-600 py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              <h2 className="text-3xl font-bold text-white mb-6">Ready to Scale Your Team?</h2>
-              <p className="text-xl text-primary-100 mb-8">
-                Whether you need permanent hires or temporary staff augmentation, let's discuss how we can help you build your ideal tech team.
+              <p className="text-xl md:text-2xl text-primary-500 font-medium mb-4">
+                Consultor estratégico en Recruiting, IA y Employer Branding.
               </p>
-              <button 
-                onClick={() => setIsContactFormOpen(true)}
-                className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-colors"
-              >
-                Schedule a Call
-              </button>
-            </motion.div>
+              <p className="text-base md:text-lg text-dark-400 mb-8 max-w-xl">
+                Fundador de LevelUp y referente en innovación en Talent Acquisition en Latinoamérica.
+              </p>
+              <Link to="/contact" className="btn-primary">
+                Aplicar a una conversación estratégica
+              </Link>
+            </ScrollReveal>
+            <ScrollReveal direction="right" delay={0.2}>
+              <div className="flex justify-center lg:justify-end">
+                <ProfileImagePlaceholder
+                  src="/perfil2.png"
+                  shape="rounded"
+                  className="w-full max-w-md"
+                />
+              </div>
+            </ScrollReveal>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Contact Form Modal */}
-      <ContactForm 
-        isOpen={isContactFormOpen} 
-        onClose={() => setIsContactFormOpen(false)} 
-      />
+      {/* 2) Historia – Evolución */}
+      <section className="section bg-white">
+        <div className="container-custom">
+          <div className="max-w-3xl">
+            <ScrollReveal>
+              <h2 className="mb-8 text-dark-500">De agencia innovadora a consultoría estratégica</h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <div className="text-base md:text-lg text-dark-400 space-y-6 leading-relaxed">
+                <p>
+                  Hace más de 5 años fundé LevelUp con el objetivo de modernizar los procesos de reclutamiento, priorizando la experiencia del candidato.
+                </p>
+                <p>
+                  Fuimos la primera agencia en el mundo en implementar screenings online asincrónicos.
+                </p>
+                <p>
+                  Apostamos tempranamente por la automatización, herramientas emergentes y uso estratégico de datos.
+                </p>
+                <p>
+                  Con el tiempo, entendí que el verdadero problema no era solo atraer talento, sino diseñar un modelo operativo que permita contratar bien de forma sostenida.
+                </p>
+                <p>
+                  Esa evolución llevó de forma natural a la consultoría estratégica en procesos, métricas, ATS e IA aplicada: pensar en sistema y visión de negocio, no solo en búsquedas puntuales.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 3) Autoridad y reconocimiento */}
+      <section className="section bg-gray-50">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
+              <ScrollReveal>
+                <h2 className="mb-10 text-dark-500">Reconocimiento y trayectoria</h2>
+              </ScrollReveal>
+              <ScrollReveal delay={0.1}>
+                <ul className="space-y-4 max-w-2xl">
+                  {[
+                    'LinkedIn Top Voice Latinoamérica',
+                    '+52.000 seguidores',
+                    'Referente en Recruiting, IA aplicada y Employer Branding',
+                    'Más de 15 años de experiencia en tecnología y negocios',
+                    'Experiencia construyendo y liderando equipos',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start text-dark-400">
+                      <Check size={20} className="mr-3 mt-0.5 text-primary-500 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </ScrollReveal>
+            </div>
+            <ScrollReveal direction="right" delay={0.2}>
+              <div className="flex justify-center lg:justify-end">
+                <img
+                  src="/topvoice.png"
+                  alt="Mariano Obligado"
+                  className="rounded-2xl max-w-md w-full h-auto object-cover shadow-md"
+                />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 4) Enfoque de trabajo */}
+      <section className="section bg-white">
+        <div className="container-custom">
+          <ScrollReveal>
+            <h2 className="mb-10 text-dark-500">Mi enfoque</h2>
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <ul className="space-y-4 max-w-2xl">
+              {[
+                'Proceso antes que herramienta',
+                'Métricas antes que intuición',
+                'IA aplicada con criterio',
+                'Recruiting alineado al negocio',
+                'Hiring managers como parte del sistema',
+              ].map((item, i) => (
+                <li key={i} className="flex items-start text-dark-400">
+                  <Check size={20} className="mr-3 mt-0.5 text-primary-500 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 5) Filosofía */}
+      <section className="section bg-gray-50">
+        <div className="container-custom">
+          <ScrollReveal>
+            <blockquote className="max-w-2xl border-l-4 border-primary-500 pl-6 md:pl-8 py-2">
+              <p className="text-lg md:text-xl text-dark-500 font-medium leading-relaxed">
+                El recruiting no es publicar vacantes.
+                <br />
+                Es diseñar un sistema que permite atraer, evaluar y decidir con claridad.
+              </p>
+            </blockquote>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 6) CTA final */}
+      <section className="section bg-white">
+        <div className="container-custom">
+          <ScrollReveal>
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="mb-4 text-dark-500">Trabajemos juntos</h2>
+              <p className="text-dark-400 mb-8">
+                Si tu empresa está creciendo y necesitás profesionalizar tu proceso de selección, conversemos.
+              </p>
+              <Link to="/contact" className="btn-primary text-base px-8 py-4">
+                Aplicar a una conversación estratégica
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
     </div>
   );
 };
 
-export default About; 
+export default About;

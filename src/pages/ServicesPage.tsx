@@ -1,151 +1,296 @@
 import React from 'react';
-import { Users, Briefcase, Brain, Database } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/common/ScrollReveal';
+import { Check } from 'lucide-react';
 
-const services = [
-  {
-    icon: <Briefcase size={36} className="text-primary-500" />,
-    title: 'Direct Hire',
-    description:
-      'Hire top-tier tech talent directly for your company. We handle sourcing, vetting, and onboarding, so you get the right fit for your team with no hassle.',
-    benefits: [
-      'Full-time dedicated professionals',
-      'Streamlined hiring process',
-      'Cultural and technical fit guaranteed',
-    ],
-  },
-  {
-    icon: <Users size={36} className="text-primary-500" />,
-    title: 'Staff Augmentation',
-    description:
-      'Scale your team flexibly with our staff augmentation model. Access skilled developers, designers, and specialists as an extension of your in-house team.',
-    benefits: [
-      'Flexible scaling up or down',
-      'Seamless integration with your processes',
-      'Quick ramp-up and onboarding',
-    ],
-  },
-];
+const ServiceCard: React.FC<{
+  title: string;
+  duration?: string;
+  includes: string[];
+  deliverable?: string;
+  cta: string;
+  delay?: number;
+}> = ({ title, duration, includes, deliverable, cta, delay = 0 }) => (
+  <ScrollReveal delay={delay}>
+    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6 md:p-8 h-full flex flex-col">
+      <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+        <h3 className="text-xl font-semibold text-dark-500">{title}</h3>
+        {duration && (
+          <span className="text-sm text-dark-400">{duration}</span>
+        )}
+      </div>
+      <ul className="space-y-2 mb-6 flex-1">
+        {includes.map((item, i) => (
+          <li key={i} className="flex items-start text-dark-400 text-sm md:text-base">
+            <Check size={18} className="mr-2 mt-0.5 text-primary-500 flex-shrink-0" />
+            {item}
+          </li>
+        ))}
+      </ul>
+      {deliverable && (
+        <p className="text-sm text-dark-400 mb-4 pb-4 border-b border-gray-100">
+          <span className="font-medium text-dark-500">Entregable: </span>{deliverable}
+        </p>
+      )}
+      <Link to="/contact" className="btn-outline text-center text-sm py-2.5 mt-auto">
+        {cta}
+      </Link>
+    </div>
+  </ScrollReveal>
+);
 
 const ServicesPage: React.FC = () => {
   return (
-    <section className="section bg-white min-h-screen">
-      <div className="container-custom">
-        <ScrollReveal>
-          <div className="text-center mb-16">
-            <h1 className="mb-4">Our Core Talent & Engagement Models</h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We specialize in AI, Machine Learning, and Data Engineering talent. Choose the best way to grow your team: Direct Hire for permanent roles, or Staff Augmentation for flexible scaling.
-            </p>
-          </div>
-        </ScrollReveal>
+    <div className="bg-white">
+      {/* 1) Hero de servicios */}
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-gray-50">
+        <div className="container-custom">
+          <ScrollReveal>
+            <div className="max-w-3xl">
+              <h1 className="mb-4">Cómo trabajamos</h1>
+              <p className="text-xl md:text-2xl text-dark-400 font-medium mb-4">
+                Servicios estratégicos para profesionalizar y escalar tu proceso de Recruiting.
+              </p>
+              <p className="text-base md:text-lg text-dark-400 mb-8">
+                Desde diagnósticos puntuales hasta implementación completa y acompañamiento mensual. Diseñamos procesos, métricas y modelos operativos que alinean el recruiting con los objetivos del negocio.
+              </p>
+              <Link to="/contact" className="btn-primary">
+                Aplicar a una conversación estratégica
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
-          {services.map((service, idx) => (
-            <ScrollReveal key={service.title} delay={0.2 * idx}>
-              <div className="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col items-center text-center">
-                <div className="mb-4">{service.icon}</div>
-                <h2 className="text-2xl font-semibold mb-3">{service.title}</h2>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <ul className="text-left mb-6 space-y-2">
-                  {service.benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-center text-dark-400">
-                      <span className="w-2 h-2 bg-primary-500 rounded-full mr-3"></span>
-                      {benefit}
+      {/* 2) Sección A — Diagnóstico & Definición */}
+      <section className="section bg-white">
+        <div className="container-custom">
+          <ScrollReveal>
+            <h2 className="mb-2 text-dark-500">Diagnóstico & Definición</h2>
+            <p className="text-dark-400 mb-10 max-w-2xl">
+              Productos de entrada para entender el estado actual y definir el camino.
+            </p>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <ServiceCard
+              title="Diagnóstico de Recruiting"
+              duration="10 días"
+              includes={[
+                'Relevamiento (kickoff + entrevistas)',
+                'Mapa de proceso actual + cuellos de botella',
+                'Auditoría de JD, scorecards y pipeline',
+                'Métricas base',
+                'Roadmap 30/60/90',
+              ]}
+              deliverable="Informe ejecutivo + tablero + workshop estratégico"
+              cta="Solicitar diagnóstico"
+              delay={0.1}
+            />
+            <ServiceCard
+              title="ATS / Stack Selection Sprint"
+              duration="2 semanas"
+              includes={[
+                'Definición de requerimientos',
+                'Shortlist de herramientas',
+                'Scorecard comparativo',
+                'Guión de demos',
+                'Plan de implementación',
+              ]}
+              cta="Explorar sprint"
+              delay={0.2}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 3) Sección B — Implementación y transformación */}
+      <section className="section bg-gray-50">
+        <div className="container-custom">
+          <ScrollReveal>
+            <h2 className="mb-2 text-dark-500">Implementación y transformación</h2>
+            <p className="text-dark-400 mb-10 max-w-2xl">
+              Servicios core para armar o transformar tu sistema de recruiting.
+            </p>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <ServiceCard
+              title="Armado de área de Recruiting desde cero"
+              duration="4–6 semanas"
+              includes={[
+                'Modelo operativo',
+                'Proceso end-to-end',
+                'Scorecards y entrevistas estructuradas',
+                'Capacitación a hiring managers',
+                'Dashboard mínimo viable',
+              ]}
+              deliverable="Playbook + kit operativo + capacitación"
+              cta="Consultar"
+              delay={0.1}
+            />
+            <ServiceCard
+              title="Implementación de ATS + Proceso"
+              duration="6–10 semanas"
+              includes={[
+                'Configuración completa',
+                'Automatizaciones y reportes',
+                'Integraciones clave',
+                'Entrenamiento y adopción',
+                'Soporte post go-live',
+              ]}
+              cta="Consultar"
+              delay={0.2}
+            />
+            <ServiceCard
+              title="Recruiting Performance System"
+              duration="4 semanas"
+              includes={[
+                'Definición de métricas',
+                'Diseño de tablero',
+                'Cadencia de seguimiento',
+                'Coaching a recruiter lead',
+              ]}
+              cta="Consultar"
+              delay={0.3}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 4) Sección C — Advisory mensual */}
+      <section className="section bg-white">
+        <div className="container-custom">
+          <ScrollReveal>
+            <h2 className="mb-2 text-dark-500">Advisory mensual</h2>
+            <p className="text-dark-400 mb-10 max-w-2xl">
+              Acompañamiento continuo para mantener y mejorar el modelo operativo.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <div className="max-w-2xl bg-gray-50 rounded-2xl border border-gray-100 p-6 md:p-8">
+              <h3 className="text-xl font-semibold text-dark-500 mb-2">Advisory estratégico</h3>
+              <ul className="space-y-2 mb-6">
+                {[
+                  '2–4 sesiones mensuales',
+                  'Revisión de pipeline y métricas',
+                  'Soporte en decisiones estratégicas',
+                  'Optimización continua del modelo',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start text-dark-400">
+                    <Check size={18} className="mr-2 mt-0.5 text-primary-500 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-sm text-dark-400 italic">
+                Ideal para startups y scaleups en etapa de crecimiento.
+              </p>
+              <Link to="/contact" className="btn-outline mt-6 inline-block">
+                Aplicar a advisory
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 5) Sección D — Workshops y módulos */}
+      <section className="section bg-gray-50">
+        <div className="container-custom">
+          <ScrollReveal>
+            <h2 className="mb-2 text-dark-500">Workshops y módulos específicos</h2>
+            <p className="text-dark-400 mb-10 max-w-2xl">
+              Módulos acotados para fortalecer áreas concretas del proceso.
+            </p>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <ScrollReveal delay={0.1}>
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 md:p-8 h-full flex flex-col">
+                <h3 className="text-xl font-semibold text-dark-500 mb-2">Employer Branding práctico</h3>
+                <p className="text-sm text-dark-400 mb-4">3–4 semanas</p>
+                <ul className="space-y-2 mb-6 flex-1">
+                  {[
+                    'Definición de propuesta de valor empleador',
+                    'Guía de tono y mensajes clave',
+                    'Kit de contenidos y canales',
+                    'Métricas básicas de employer brand',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start text-dark-400 text-sm">
+                      <Check size={18} className="mr-2 mt-0.5 text-primary-500 flex-shrink-0" />
+                      {item}
                     </li>
                   ))}
                 </ul>
-                <Link to="/team-calculator" className="btn-primary w-full mt-auto">
-                  Calculate your Team cost
+                <Link to="/contact" className="btn-outline text-center text-sm py-2.5 mt-auto">
+                  Solicitar módulo
                 </Link>
               </div>
             </ScrollReveal>
-          ))}
+            <ScrollReveal delay={0.2}>
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 md:p-8 h-full flex flex-col">
+                <h3 className="text-xl font-semibold text-dark-500 mb-2">Training para Hiring Managers</h3>
+                <ul className="space-y-2 mb-6 flex-1">
+                  {[
+                    'Sesión de entrevistas estructuradas',
+                    'Uso de scorecards y criterios',
+                    'Feedback y cierre con candidatos',
+                    'Alineación con proceso interno',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start text-dark-400 text-sm">
+                      <Check size={18} className="mr-2 mt-0.5 text-primary-500 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link to="/contact" className="btn-outline text-center text-sm py-2.5 mt-auto">
+                  Solicitar training
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
+      </section>
 
-        <ScrollReveal>
-          <div className="overflow-x-auto mb-16">
-            <h2 className="text-2xl font-semibold mb-6 text-center">Comparativo: Staff Augmentation vs Direct Hire</h2>
-            <table className="min-w-full bg-white rounded-2xl shadow border border-gray-100">
-              <thead>
-                <tr className="bg-primary-100 text-primary-700">
-                  <th className="py-4 px-4 text-left font-semibold text-lg rounded-tl-2xl">Aspect</th>
-                  <th className="py-4 px-4 text-center font-semibold text-lg">Staff Augmentation</th>
-                  <th className="py-4 px-4 text-center font-semibold text-lg rounded-tr-2xl">Direct Hire</th>
-                </tr>
-              </thead>
-              <tbody className="text-dark-400">
-                <tr className="border-t">
-                  <td className="py-3 px-4 font-medium">Time to Onboard</td>
-                  <td className="py-3 px-4 text-center">Fast and agile — get qualified professionals on board within days</td>
-                  <td className="py-3 px-4 text-center">Strategic process — ideal for building long-term team foundations</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="py-3 px-4 font-medium">Flexibility</td>
-                  <td className="py-3 px-4 text-center">Easily scale your team up or down based on project demands</td>
-                  <td className="py-3 px-4 text-center">Great for stable, long-term roles with consistent workload</td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-3 px-4 font-medium">Short-Term Cost</td>
-                  <td className="py-3 px-4 text-center">Predictable hourly or monthly rates — no long-term commitment</td>
-                  <td className="py-3 px-4 text-center">No intermediary costs — direct relationship with the employee</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="py-3 px-4 font-medium">Long-Term Investment</td>
-                  <td className="py-3 px-4 text-center">Cost-efficient for temporary or project-based needs</td>
-                  <td className="py-3 px-4 text-center">Strong ROI when developing internal knowledge and capabilities</td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-3 px-4 font-medium">Talent Access</td>
-                  <td className="py-3 px-4 text-center">Immediate access to global, specialized talent</td>
-                  <td className="py-3 px-4 text-center">Opportunity to nurture local and in-house expertise</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="py-3 px-4 font-medium">Administrative Load</td>
-                  <td className="py-3 px-4 text-center">Light — we handle payroll, contracts, and compliance</td>
-                  <td className="py-3 px-4 text-center">Full control over internal HR and legal processes</td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-3 px-4 font-medium">Knowledge Retention</td>
-                  <td className="py-3 px-4 text-center">Expertise is available when and where you need it</td>
-                  <td className="py-3 px-4 text-center">Valuable for building institutional knowledge over time</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="py-3 px-4 font-medium">Cultural Integration</td>
-                  <td className="py-3 px-4 text-center">External talent that quickly adapts to your processes and tools</td>
-                  <td className="py-3 px-4 text-center">Deep alignment with company culture and long-term vision</td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-3 px-4 font-medium">Team Control</td>
-                  <td className="py-3 px-4 text-center">Manage the work directly while we handle logistics</td>
-                  <td className="py-3 px-4 text-center">Full responsibility and ownership of employee growth and performance</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="py-3 px-4 font-medium">Compliance & Legal</td>
-                  <td className="py-3 px-4 text-center">We take care of employment, tax, and legal requirements globally</td>
-                  <td className="py-3 px-4 text-center">Direct legal responsibility for employment and regulatory matters</td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-3 px-4 font-medium">Best For</td>
-                  <td className="py-3 px-4 text-center">Short-term projects, fast scaling, bridging skill gaps</td>
-                  <td className="py-3 px-4 text-center">Strategic hires, leadership roles, long-term organizational growth</td>
-                </tr>
-              </tbody>
-            </table>
+      {/* 6) Sección final — Proceso de trabajo */}
+      <section className="section bg-white">
+        <div className="container-custom">
+          <ScrollReveal>
+            <h2 className="mb-2 text-dark-500 text-center">Qué pasa después de aplicar</h2>
+            <p className="text-dark-400 text-center mb-12 max-w-xl mx-auto">
+              Proceso simple y transparente para iniciar el trabajo.
+            </p>
+          </ScrollReveal>
+          <div className="max-w-3xl mx-auto">
+            <ol className="space-y-6">
+              {[
+                { step: 1, title: 'Revisión del caso', text: 'Revisamos tu contexto y objetivos.' },
+                { step: 2, title: 'Conversación estratégica', text: 'Una videollamada para alinear expectativas y alcance.' },
+                { step: 3, title: 'Propuesta personalizada', text: 'Te enviamos una propuesta con alcance, entregables y plazos.' },
+                { step: 4, title: 'Inicio del proyecto', text: 'Kickoff y arranque según lo acordado.' },
+              ].map((item, i) => (
+                <ScrollReveal key={item.step} delay={i * 0.1}>
+                  <li className="flex gap-4 md:gap-6">
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 text-primary-600 font-semibold flex items-center justify-center">
+                      {item.step}
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-dark-500 mb-1">{item.title}</h3>
+                      <p className="text-dark-400 text-sm md:text-base">{item.text}</p>
+                    </div>
+                  </li>
+                </ScrollReveal>
+              ))}
+            </ol>
+            <ScrollReveal delay={0.5}>
+              <div className="mt-12 text-center">
+                <Link to="/contact" className="btn-primary text-base px-8 py-4">
+                  Aplicar a una conversación estratégica
+                </Link>
+              </div>
+            </ScrollReveal>
           </div>
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <div className="max-w-2xl mx-auto mb-16">
-            <div className="bg-primary-50 border-l-4 border-primary-500 rounded-xl p-6 shadow text-dark-500 text-lg text-center">
-              <strong>Many of our U.S. clients use a hybrid approach</strong> — combining staff augmentation for speed and flexibility, and direct hires for stability and leadership.
-            </div>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
   );
 };
 
-export default ServicesPage; 
+export default ServicesPage;

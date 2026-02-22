@@ -1,8 +1,6 @@
 import React from 'react';
 import { Brain, Database, Code, Gauge, Palette, Zap } from 'lucide-react';
 import ScrollReveal from '../common/ScrollReveal';
-import TechLogosCarousel from './TechLogosCarousel';
-
 interface ServiceCardProps {
   icon: React.ReactNode;
   title: string;
@@ -91,7 +89,6 @@ const ServicesSection: React.FC = () => {
           </div>
         </div>
       </section>
-      <div className="bg-gray-50"><TechLogosCarousel /></div>
       <section className="section bg-white">
         <div className="container-custom">
           <ScrollReveal>
@@ -109,11 +106,6 @@ const ServicesSection: React.FC = () => {
                 <p className="text-gray-600 flex-1">{service.description}</p>
               </div>
             ))}
-          </div>
-          <div className="text-center">
-            <a href="/team-calculator" className="btn-primary inline-block">
-              Calculate your Costs
-            </a>
           </div>
         </div>
       </section>

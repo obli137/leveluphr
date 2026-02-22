@@ -4,7 +4,6 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
-import TeamCalculatorPage from './pages/TeamCalculatorPage';
 import ContactPage from './pages/ContactPage';
 import About from './pages/About';
 
@@ -16,7 +15,6 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/team-calculator" element={<TeamCalculatorPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<About />} />
         </Routes>

@@ -27,10 +27,9 @@ const Header: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'About', href: '/about' },
-    { name: 'Team Calculator', href: '/team-calculator' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Servicios', href: '/services' },
+    { name: 'Quiénes somos', href: '/about' },
+    { name: 'Contacto', href: '/contact' },
   ];
 
   return (
@@ -60,7 +59,7 @@ const Header: React.FC = () => {
           
           <div className="hidden md:block">
             <Link to="/contact" className="btn-primary">
-              Schedule a Call
+              Agendar videollamada
             </Link>
           </div>
           
@@ -92,7 +91,7 @@ const Header: React.FC = () => {
               to="/contact" 
               className="btn-primary text-center mt-4"
             >
-              Schedule a Call
+              Agendar videollamada
             </Link>
           </nav>
         </div>

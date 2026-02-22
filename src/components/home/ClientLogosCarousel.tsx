@@ -15,7 +15,7 @@ const ClientLogosCarousel: React.FC = () => {
   return (
     <div className="w-full py-8">
       <div className="mb-6 text-center">
-        <h3 className="text-xl md:text-2xl font-semibold text-gray-200 mb-2 tracking-wide">Trusted by leading companies</h3>
+        <h3 className="text-xl md:text-2xl font-semibold text-gray-200 mb-2 tracking-wide">Empresas que confiaron en nosotros</h3>
       </div>
       <div className="overflow-hidden relative">
         <div className="flex gap-8 animate-scroll-x items-center group hover:[animation-play-state:paused]" style={{animationDuration: '30s'}}>

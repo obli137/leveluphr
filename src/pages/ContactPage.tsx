@@ -1,8 +1,10 @@
 import React from 'react';
-import { PhoneCall, Mail, MapPin, Send } from 'lucide-react';
+import { MessageCircle, Mail, MapPin, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import ScrollReveal from '../components/common/ScrollReveal';
+
+const WHATSAPP_NUMBER = '5491136023471';
 
 const ContactPage: React.FC = () => {
   return (
@@ -10,74 +12,86 @@ const ContactPage: React.FC = () => {
       <div className="container-custom">
         <ScrollReveal>
           <Link to="/" className="inline-flex items-center text-primary-500 hover:text-primary-600 mb-8">
-            <ArrowLeft size={16} className="mr-2" /> Back to Home
+            <ArrowLeft size={16} className="mr-2" /> Volver al inicio
           </Link>
         </ScrollReveal>
-        
+
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
-              <h1 className="mb-4">Get in Touch</h1>
+              <h1 className="mb-4">Contacto</h1>
               <p className="text-lg text-gray-600">
-                Have a project in mind? Let's discuss how we can help you achieve your goals.
+                ¿Querés mejorar la arquitectura de recruiting de tu empresa? Agendá una videollamada y conversamos sobre procesos, métricas e implementación.
               </p>
             </div>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Contact Information */}
+            {/* Información de contacto */}
             <ScrollReveal>
               <div>
                 <div className="bg-white rounded-lg shadow-sm p-8">
-                  <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
-                  
+                  <h2 className="text-2xl font-semibold mb-6">Información de contacto</h2>
+
                   <div className="space-y-6">
                     <div className="flex items-start">
-                      <PhoneCall size={20} className="mr-3 mt-1 text-primary-500" />
+                      <MessageCircle size={20} className="mr-3 mt-1 text-primary-500 flex-shrink-0" />
                       <div>
-                        <h3 className="font-medium text-dark-500">Phone</h3>
-                        <p className="text-gray-600">+1 (555) 123-4567</p>
+                        <h3 className="font-medium text-dark-500">WhatsApp</h3>
+                        <a
+                          href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-600 hover:text-primary-500 transition-colors"
+                        >
+                          54 9 11 3602 3471
+                        </a>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start">
-                      <Mail size={20} className="mr-3 mt-1 text-primary-500" />
+                      <Mail size={20} className="mr-3 mt-1 text-primary-500 flex-shrink-0" />
                       <div>
                         <h3 className="font-medium text-dark-500">Email</h3>
-                        <p className="text-gray-600">contact@levelup.dev</p>
+                        <a
+                          href="mailto:mariano@hrlevel-up.com"
+                          className="text-gray-600 hover:text-primary-500 transition-colors"
+                        >
+                          mariano@hrlevel-up.com
+                        </a>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start">
-                      <MapPin size={20} className="mr-3 mt-1 text-primary-500" />
+                      <MapPin size={20} className="mr-3 mt-1 text-primary-500 flex-shrink-0" />
                       <div>
-                        <h3 className="font-medium text-dark-500">Location</h3>
-                        <p className="text-gray-600">123 Tech Lane, San Francisco, CA 94107</p>
+                        <h3 className="font-medium text-dark-500">Ubicación</h3>
+                        <p className="text-gray-600">Ciudad de Buenos Aires, Argentina</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="mt-8 pt-8 border-t border-gray-100">
-                    <h3 className="text-lg font-medium mb-4">Business Hours</h3>
+                    <h3 className="text-lg font-medium mb-4">Horario de atención</h3>
                     <div className="space-y-2 text-gray-600">
-                      <p>Monday - Friday: 9:00 AM - 6:00 PM PST</p>
-                      <p>Saturday - Sunday: Closed</p>
+                      <p>Lunes a viernes: 9:00 - 18:00</p>
+                      <p>Sábados y domingos: Cerrado</p>
                     </div>
                   </div>
                 </div>
               </div>
             </ScrollReveal>
 
-            {/* Contact Form */}
+            {/* Formulario de contacto */}
             <ScrollReveal delay={0.2}>
               <div>
                 <div className="bg-white rounded-lg shadow-sm p-8">
-                  <h2 className="text-2xl font-semibold mb-6">Send us a Message</h2>
-                  
+                  <h2 className="text-2xl font-semibold mb-6">Enviar mensaje</h2>
+
                   <form className="space-y-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                        Full Name
+                        Nombre completo
                       </label>
                       <input
                         type="text"
@@ -90,7 +104,7 @@ const ContactPage: React.FC = () => {
 
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                        Email Address
+                        Email
                       </label>
                       <input
                         type="email"
@@ -103,7 +117,7 @@ const ContactPage: React.FC = () => {
 
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                        Subject
+                        Asunto
                       </label>
                       <input
                         type="text"
@@ -116,7 +130,7 @@ const ContactPage: React.FC = () => {
 
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                        Message
+                        Mensaje
                       </label>
                       <textarea
                         id="message"
@@ -131,7 +145,7 @@ const ContactPage: React.FC = () => {
                       type="submit"
                       className="btn-primary w-full flex items-center justify-center"
                     >
-                      Send Message <Send size={18} className="ml-2" />
+                      Enviar mensaje <Send size={18} className="ml-2" />
                     </button>
                   </form>
                 </div>
