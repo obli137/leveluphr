@@ -58,9 +58,9 @@ const Header: React.FC = () => {
           </nav>
           
           <div className="hidden md:block">
-            <Link to="/contact" className="btn-primary">
-              Agendar videollamada
-            </Link>
+            <a href="https://wa.me/5491136023471" target="_blank" rel="noopener noreferrer" className="btn-primary">
+              Contactar por WhatsApp
+            </a>
           </div>
           
           {/* Mobile menu button */}
@@ -87,12 +87,14 @@ const Header: React.FC = () => {
                 {link.name}
               </Link>
             ))}
-            <Link 
-              to="/contact" 
+            <a 
+              href="https://wa.me/5491136023471" 
+              target="_blank" 
+              rel="noopener noreferrer" 
               className="btn-primary text-center mt-4"
             >
-              Agendar videollamada
-            </Link>
+              Contactar por WhatsApp
+            </a>
           </nav>
         </div>
       )}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/common/ScrollReveal';
 import ProfileImagePlaceholder from '../components/common/ProfileImagePlaceholder';
 import { Check } from 'lucide-react';
@@ -49,9 +48,9 @@ const About: React.FC = () => {
               <p className="text-base md:text-lg text-dark-400 mb-8 max-w-xl">
                 Fundador de LevelUp y referente en innovación en Talent Acquisition en Latinoamérica.
               </p>
-              <Link to="/contact" className="btn-primary">
+              <a href="https://wa.me/5491136023471" target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Aplicar a una conversación estratégica
-              </Link>
+              </a>
             </ScrollReveal>
             <ScrollReveal direction="right" delay={0.2}>
               <div className="flex justify-center lg:justify-end">
@@ -183,9 +182,9 @@ const About: React.FC = () => {
               <p className="text-dark-400 mb-8">
                 Si tu empresa está creciendo y necesitás profesionalizar tu proceso de selección, conversemos.
               </p>
-              <Link to="/contact" className="btn-primary text-base px-8 py-4">
+              <a href="https://wa.me/5491136023471" target="_blank" rel="noopener noreferrer" className="btn-primary text-base px-8 py-4">
                 Aplicar a una conversación estratégica
-              </Link>
+              </a>
             </div>
           </ScrollReveal>
         </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import FloatingWhatsAppButton from './components/common/FloatingWhatsAppButton';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
@@ -20,6 +21,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <FloatingWhatsAppButton />
     </div>
   );
 }

@@ -1,68 +1,9 @@
-import React, { useState } from 'react';
-import { CheckCircle } from 'lucide-react';
+import React from 'react';
+import { CheckCircle, MessageCircle } from 'lucide-react';
 
-const INTEREST_OPTIONS = [
-  'Diagnóstico de recruiting',
-  'Implementación de ATS',
-  'Performance y métricas',
-  'Advisory mensual',
-  'Otro / Aún no lo tengo claro',
-];
+const WHATSAPP_NUMBER = '5491136023471';
 
 const ContactSection: React.FC = () => {
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    role: '',
-    interest: '',
-    message: '',
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormStatus('submitting');
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 20000);
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          source: 'home',
-        }),
-        signal: controller.signal,
-      });
-      clearTimeout(timeoutId);
-      await res.json().catch(() => ({}));
-      if (!res.ok) {
-        setFormStatus('error');
-        return;
-      }
-      setFormStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        role: '',
-        interest: '',
-        message: '',
-      });
-    } catch {
-      clearTimeout(timeoutId);
-      setFormStatus('error');
-    }
-  };
-
-  const inputClasses = "mt-1 block w-full rounded-md bg-dark-600 border-dark-300 text-white shadow-sm focus:border-primary-500 focus:ring focus:ring-primary-500 focus:ring-opacity-50 py-3 px-4";
-
   return (
     <section id="contact" className="section bg-dark-500 text-white">
       <div className="container-custom">
@@ -70,7 +11,7 @@ const ContactSection: React.FC = () => {
           <div>
             <h2 className="mb-6 text-white">Aplicar a una conversación estratégica</h2>
             <p className="text-lg text-gray-300 mb-8">
-              Completá el formulario y me contacto para coordinar una videollamada. Revisamos tu contexto y vemos si hay fit para trabajar juntos.
+              Escribime por WhatsApp y coordinamos una videollamada. Revisamos tu contexto y vemos si hay fit para trabajar juntos.
             </p>
 
             <div className="space-y-6">
@@ -112,139 +53,19 @@ const ContactSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-dark-400 rounded-lg p-8">
-            {formStatus === 'success' ? (
-              <div className="text-center py-8">
-                <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-primary-100 text-primary-500 mb-4">
-                  <CheckCircle size={24} />
-                </div>
-                <h3 className="text-lg font-medium text-white mb-2">Recibí tu solicitud</h3>
-                <p className="text-gray-300">
-                  Te enviamos un email de confirmación. En breve nos pondremos en contacto.
-                </p>
-              </div>
-            ) : formStatus === 'error' ? (
-              <div className="text-center py-8">
-                <p className="text-red-300 mb-4">Hubo un error al enviar. Probá de nuevo o escribinos a info@hrlevel-up.com</p>
-                <button type="button" onClick={() => setFormStatus('idle')} className="btn-outline text-white border-white hover:bg-white/10">
-                  Reintentar
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-                    Nombre completo
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    required
-                    className={inputClasses}
-                    value={formData.name}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    required
-                    className={inputClasses}
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-1">
-                    Empresa
-                  </label>
-                  <input
-                    type="text"
-                    name="company"
-                    id="company"
-                    className={inputClasses}
-                    value={formData.company}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="role" className="block text-sm font-medium text-gray-300 mb-1">
-                    Tu rol
-                  </label>
-                  <input
-                    type="text"
-                    name="role"
-                    id="role"
-                    placeholder="Ej. Founder, Head of HR, Talent Lead"
-                    className={inputClasses}
-                    value={formData.role}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="interest" className="block text-sm font-medium text-gray-300 mb-1">
-                    ¿En qué estás más interesado?
-                  </label>
-                  <select
-                    name="interest"
-                    id="interest"
-                    className={inputClasses}
-                    value={formData.interest}
-                    onChange={handleChange}
-                  >
-                    <option value="">Seleccionar</option>
-                    {INTEREST_OPTIONS.map(opt => (
-                      <option key={opt} value={opt}>{opt}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
-                    Breve contexto (opcional)
-                  </label>
-                  <textarea
-                    name="message"
-                    id="message"
-                    rows={4}
-                    placeholder="Qué desafío tenés hoy con el recruiting, tamaño del equipo, etc."
-                    className={inputClasses}
-                    value={formData.message}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <div>
-                  <button
-                    type="submit"
-                    disabled={formStatus === 'submitting'}
-                    className="w-full btn-primary flex justify-center items-center py-3"
-                  >
-                    {formStatus === 'submitting' ? (
-                      <span className="flex items-center">
-                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-dark-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Enviando...
-                      </span>
-                    ) : (
-                      'Aplicar a una conversación estratégica'
-                    )}
-                  </button>
-                </div>
-              </form>
-            )}
+          <div className="bg-dark-400 rounded-lg p-8 flex flex-col items-center justify-center text-center min-h-[280px]">
+            <p className="text-gray-300 mb-6">
+              Escribime por WhatsApp y te respondo a la brevedad.
+            </p>
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-flex items-center gap-2"
+            >
+              <MessageCircle size={22} />
+              Escribir por WhatsApp
+            </a>
           </div>
         </div>
       </div>
