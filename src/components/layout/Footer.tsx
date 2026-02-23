@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MessageCircle, Mail, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
+import { MessageCircle, Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 import Logo from '../common/Logo';
 
 const Footer: React.FC = () => {
@@ -18,12 +18,6 @@ const Footer: React.FC = () => {
             <div className="flex space-x-4">
               <a href="https://www.linkedin.com/company/hrlevel-up" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary-400 transition-colors" aria-label="LinkedIn">
                 <Linkedin size={20} />
-              </a>
-              <a href="https://twitter.com" className="text-white hover:text-primary-400 transition-colors" aria-label="Twitter">
-                <Twitter size={20} />
-              </a>
-              <a href="https://facebook.com" className="text-white hover:text-primary-400 transition-colors" aria-label="Facebook">
-                <Facebook size={20} />
               </a>
               <a href="https://instagram.com" className="text-white hover:text-primary-400 transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
