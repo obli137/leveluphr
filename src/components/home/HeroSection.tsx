@@ -57,7 +57,7 @@ const HeroSection: React.FC = () => {
 
             <ScrollReveal delay={0.2}>
               <p className="text-lg md:text-xl text-dark-400 mb-4 max-w-xl font-medium">
-                Procesos, métricas y escalabilidad para empresas en crecimiento.
+                Menos costos por vacante. Más velocidad. Mejor calidad.
               </p>
               <p className="text-base md:text-lg text-dark-400 mb-8 max-w-xl">
                 Ayudamos a founders y líderes de reclutamiento a pasar de un modelo reactivo a un sistema operativo escalable: diagnóstico, implementación de ATS, dashboards de performance e IA aplicada. Enfocados en LatAm.
@@ -69,13 +69,9 @@ const HeroSection: React.FC = () => {
                 <Link to="/contact" className="btn-primary">
                   Agendar videollamada
                 </Link>
-                <a
-                  href="#handbook"
-                  className="btn-outline"
-                  aria-label="Descargar Recruiting Handbook"
-                >
+                <Link to="/handbook" className="btn-outline" aria-label="Descargar Recruiting Handbook">
                   Descargar Recruiting Handbook
-                </a>
+                </Link>
               </div>
             </ScrollReveal>
           </div>
