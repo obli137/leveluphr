@@ -13,8 +13,8 @@ const HANDBOOK_ITEMS = [
 const HandbookPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header con navegación */}
-      <div className="border-b border-gray-100 bg-white">
+      {/* Header con navegación - padding-top para no solaparse con el nav fijo */}
+      <div className="border-b border-gray-100 bg-white pt-28 md:pt-32">
         <div className="container-custom py-6">
           <Link
             to="/"
