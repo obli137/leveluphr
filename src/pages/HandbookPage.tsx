@@ -50,7 +50,7 @@ const HandbookPage: React.FC = () => {
                 Recruiting Handbook
               </h1>
               <p className="text-lg text-primary-500 font-medium mb-6">
-                Próximamente disponible
+                Disponible para descargar
               </p>
               <p className="text-dark-400 mb-8 leading-relaxed">
                 Una guía práctica para founders y líderes de reclutamiento que quieren profesionalizar su proceso. Incluirá:
@@ -67,17 +67,27 @@ const HandbookPage: React.FC = () => {
               </ul>
               <div className="pt-6 border-t border-gray-100">
                 <p className="text-dark-400 text-sm mb-4">
-                  ¿Querés que te avisemos cuando esté listo?
+                  Descargá el Handbook y si querés, después coordinamos una conversación estratégica.
                 </p>
-                <a
-                  href="https://wa.me/5491136023471"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary inline-flex items-center gap-2"
-                >
-                  <MessageCircle size={20} />
-                  Escribinos por WhatsApp
-                </a>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="/documents/donde-se-rompe-el-reclutamiento.pdf"
+                    download="donde-se-rompe-el-reclutamiento.pdf"
+                    className="btn-outline inline-flex items-center justify-center"
+                    aria-label="Descargar Handbook"
+                  >
+                    Descargar Handbook
+                  </a>
+                  <a
+                    href="https://wa.me/5491136023471"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary inline-flex items-center gap-2"
+                  >
+                    <MessageCircle size={20} />
+                    Escribinos por WhatsApp
+                  </a>
+                </div>
               </div>
             </ScrollReveal>
           </div>

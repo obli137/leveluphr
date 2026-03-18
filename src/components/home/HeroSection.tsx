@@ -69,9 +69,14 @@ const HeroSection: React.FC = () => {
                 <Link to="/contact" className="btn-primary">
                   Agendar videollamada
                 </Link>
-                <Link to="/handbook" className="btn-outline" aria-label="Descargar Recruiting Handbook">
-                  Descargar Recruiting Handbook
-                </Link>
+                <a
+                  href="/documents/donde-se-rompe-el-reclutamiento.pdf"
+                  className="btn-outline"
+                  aria-label="Descargar Handbook"
+                  download="donde-se-rompe-el-reclutamiento.pdf"
+                >
+                  Descargar Handbook
+                </a>
               </div>
             </ScrollReveal>
           </div>
