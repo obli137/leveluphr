@@ -5,6 +5,11 @@ import { ArrowLeft } from 'lucide-react';
 import ScrollReveal from '../components/common/ScrollReveal';
 
 const WHATSAPP_NUMBER = '5491136023471';
+const WHATSAPP_LINKEDIN_URL =
+  `https://wa.me/${WHATSAPP_NUMBER}?text=` +
+  encodeURIComponent(
+    'Hola Mariano, quiero coordinar una reunión para solicitar propuesta de LinkedIn para líderes / marca personal. ¿Me compartís próximos pasos?'
+  );
 
 const ContactPage: React.FC = () => {
   return (
@@ -90,15 +95,26 @@ const ContactPage: React.FC = () => {
                   <p className="text-gray-600 mb-8">
                     Te respondo a la brevedad para coordinar una conversación.
                   </p>
-                  <a
-                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary inline-flex items-center gap-2"
-                  >
-                    <MessageCircle size={22} />
-                    Abrir WhatsApp
-                  </a>
+                  <div className="w-full max-w-sm space-y-3">
+                    <a
+                      href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary w-full inline-flex items-center justify-center gap-2"
+                    >
+                      <MessageCircle size={22} />
+                      Consultoría de Recruiting
+                    </a>
+                    <a
+                      href={WHATSAPP_LINKEDIN_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-outline w-full inline-flex items-center justify-center gap-2"
+                    >
+                      <MessageCircle size={20} />
+                      LinkedIn para líderes
+                    </a>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>

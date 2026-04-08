@@ -289,6 +289,50 @@ const ServicesPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Línea complementaria — Formación y Marca Personal */}
+      <section className="section bg-gray-50">
+        <div className="container-custom">
+          <ScrollReveal>
+            <div className="max-w-3xl">
+              <h2 className="mb-2 text-dark-500">Formación y Marca Personal</h2>
+              <p className="text-dark-400">
+                Programas y acompañamiento para líderes: formación ejecutiva y posicionamiento en LinkedIn.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <ScrollReveal delay={0.1}>
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 md:p-8 h-full flex flex-col">
+                <h3 className="text-xl font-semibold text-dark-500 mb-2">
+                  Recruiting Management (Formación ejecutiva)
+                </h3>
+                <p className="text-dark-400 mb-6 flex-1">
+                  Programa ejecutivo para líderes de Talent Acquisition que buscan estructurar y profesionalizar el sistema.
+                </p>
+                <Link to="/formacion" className="btn-outline text-center text-sm py-2.5">
+                  Ver programa
+                </Link>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 md:p-8 h-full flex flex-col">
+                <h3 className="text-xl font-semibold text-dark-500 mb-2">
+                  LinkedIn para líderes (Marca personal)
+                </h3>
+                <p className="text-dark-400 mb-6 flex-1">
+                  Estrategia, contenido y acompañamiento para voceros, gerencias y equipos directivos.
+                </p>
+                <Link to="/linkedin-para-lideres" className="btn-outline text-center text-sm py-2.5">
+                  Ver detalle
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

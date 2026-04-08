@@ -71,8 +71,11 @@ const TrainingPage: React.FC = () => {
           <ScrollReveal>
             <div className="max-w-3xl">
               <h1 className="mb-4">Formación Ejecutiva en Recruiting</h1>
-              <p className="text-xl md:text-2xl text-dark-400 font-medium mb-8">
+              <p className="text-xl md:text-2xl text-dark-400 font-medium mb-3">
                 Programas diseñados para líderes de Talent Acquisition que buscan estructurar, escalar y profesionalizar sus procesos de contratación.
+              </p>
+              <p className="text-base md:text-lg text-dark-500 font-medium mb-8">
+                Próxima cohorte: inicio Junio 2026
               </p>
               <a
                 href={APPLICATION_FORM_URL}
@@ -108,6 +111,12 @@ const TrainingPage: React.FC = () => {
                       <Calendar size={18} className="mt-0.5 text-primary-500 flex-shrink-0" />
                       <span>
                         <span className="text-dark-500 font-medium">Duración:</span> 12 semanas
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 text-dark-400">
+                      <Calendar size={18} className="mt-0.5 text-primary-500 flex-shrink-0" />
+                      <span>
+                        <span className="text-dark-500 font-medium">Inicio de la cohorte:</span> Junio 2026
                       </span>
                     </li>
                     <li className="flex items-start gap-3 text-dark-400">

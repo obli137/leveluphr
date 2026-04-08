@@ -2,6 +2,7 @@ import React from 'react';
 import ScrollReveal from '../components/common/ScrollReveal';
 import ProfileImagePlaceholder from '../components/common/ProfileImagePlaceholder';
 import { Check } from 'lucide-react';
+import RecognitionTrajectorySection from '../components/common/RecognitionTrajectorySection';
 
 /** Logo oficial de LinkedIn (estilo de marca: azul #0A66C2) */
 const LinkedInLogo: React.FC<{ size?: number; className?: string }> = ({ size = 32, className = '' }) => (
@@ -96,42 +97,7 @@ const About: React.FC = () => {
       </section>
 
       {/* 3) Autoridad y reconocimiento */}
-      <section className="section bg-gray-50">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div>
-              <ScrollReveal>
-                <h2 className="mb-10 text-dark-500">Reconocimiento y trayectoria</h2>
-              </ScrollReveal>
-              <ScrollReveal delay={0.1}>
-                <ul className="space-y-4 max-w-2xl">
-                  {[
-                    'LinkedIn Top Voice Latinoamérica',
-                    '+52.000 seguidores',
-                    'Referente en Recruiting, IA aplicada y Employer Branding',
-                    'Más de 15 años de experiencia en tecnología y negocios',
-                    'Experiencia construyendo y liderando equipos',
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start text-dark-400">
-                      <Check size={20} className="mr-3 mt-0.5 text-primary-500 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </ScrollReveal>
-            </div>
-            <ScrollReveal direction="right" delay={0.2}>
-              <div className="flex justify-center lg:justify-end">
-                <img
-                  src="/topvoice.png"
-                  alt="Mariano Obligado"
-                  className="rounded-2xl max-w-md w-full h-auto object-cover shadow-md"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
+      <RecognitionTrajectorySection />
 
       {/* 4) Enfoque de trabajo */}
       <section className="section bg-white">

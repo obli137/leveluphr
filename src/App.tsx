@@ -11,6 +11,7 @@ import HandbookPage from './pages/HandbookPage';
 import ResourcesPage from './pages/ResourcesPage';
 import ArticleDetailPage from './pages/ArticleDetailPage';
 import TrainingPage from './pages/TrainingPage';
+import LinkedInLeadersPage from './pages/LinkedInLeadersPage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/handbook" element={<HandbookPage />} />
           <Route path="/formacion" element={<TrainingPage />} />
+          <Route path="/linkedin-para-lideres" element={<LinkedInLeadersPage />} />
           <Route path="/recursos" element={<ResourcesPage />} />
           <Route path="/recursos/libros" element={<ResourcesPage />} />
           <Route path="/recursos/articulos" element={<ResourcesPage />} />
