@@ -272,9 +272,9 @@ const LinkedInLeadersPage: React.FC = () => {
         <div className="container-custom">
           <ScrollReveal>
             <div className="max-w-3xl">
-              <h2 className="mb-2 text-dark-500">Ofertas</h2>
+              <h2 className="mb-2 text-dark-500">Tipos de encuadre</h2>
               <p className="text-dark-400">
-                Paquetes sin pricing público. Definimos alcance y propuesta según cantidad de líderes, nivel de exposición y dinámica interna con Comunicación.
+                Definimos alcance y propuesta para cada instancia de LinkedIn para líderes en función del número de líderes, el grado de visibilidad deseado y el trabajo conjunto con Comunicación.
               </p>
             </div>
           </ScrollReveal>
