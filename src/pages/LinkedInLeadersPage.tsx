@@ -249,7 +249,7 @@ const LinkedInLeadersPage: React.FC = () => {
                 Servicio brindado exclusivamente por Mariano Obligado.
               </p>
               <p className="text-base md:text-lg text-dark-400 mb-8">
-                Una línea complementaria a la consultoría de Talent: ayudamos a líderes a construir autoridad con un sistema simple (perfil, narrativa, contenidos y métricas), alineado a la marca y a Comunicación.
+                Ayudamos a líderes a construir autoridad en LinkedIn con un sistema simple (perfil, narrativa, contenidos y métricas), alineado a la marca y a Comunicación.
               </p>
               <a
                 href={WHATSAPP_LINKEDIN_URL}

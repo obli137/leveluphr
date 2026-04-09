@@ -19,7 +19,7 @@ const LeadersAndSpokespeopleSection: React.FC = () => {
             <ScrollReveal>
               <h2 className="mb-3 text-dark-500">Para líderes y voceros</h2>
               <p className="text-dark-400 text-base md:text-lg leading-relaxed">
-                Una línea complementaria a la consultoría de Talent: ayudamos a líderes a construir posicionamiento y marca personal en LinkedIn, con un sistema simple (narrativa, perfil, contenidos y métricas) alineado a la marca y a Comunicación.
+                Ayudamos a líderes a construir posicionamiento y marca personal en LinkedIn, con un sistema simple (narrativa, perfil, contenidos y métricas) alineado a la marca y a Comunicación.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link to="/linkedin-para-lideres" className="btn-outline">
