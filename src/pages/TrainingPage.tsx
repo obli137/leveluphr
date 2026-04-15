@@ -72,7 +72,7 @@ const TrainingPage: React.FC = () => {
             <div className="max-w-3xl">
               <h1 className="mb-4">Formación Ejecutiva en Recruiting</h1>
               <p className="text-xl md:text-2xl text-dark-400 font-medium mb-3">
-                Programas diseñados para líderes de Talent Acquisition que buscan estructurar, escalar y profesionalizar sus procesos de contratación.
+                Programas diseñados para Reclutadores Senior, Líderes de Recruiting y referentes de Talent Acquisition que buscan estructurar, escalar y profesionalizar sus procesos de contratación.
               </p>
               <p className="text-base md:text-lg text-dark-500 font-medium mb-8">
                 Próxima cohorte: inicio Junio 2026

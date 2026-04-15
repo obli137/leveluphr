@@ -309,7 +309,7 @@ const ServicesPage: React.FC = () => {
                   Recruiting Management (Formación ejecutiva)
                 </h3>
                 <p className="text-dark-400 mb-6 flex-1">
-                  Programa ejecutivo para líderes de Talent Acquisition que buscan estructurar y profesionalizar el sistema.
+                  Programa ejecutivo para Reclutadores Senior, Líderes de Recruiting y referentes de Talent Acquisition que buscan estructurar y profesionalizar su sistema.
                 </p>
                 <Link to="/formacion" className="btn-outline text-center text-sm py-2.5">
                   Ver programa
