@@ -12,7 +12,6 @@ import {
   FileText,
   Gauge,
   Layers,
-  MessageSquareQuote,
   Search,
   Settings2,
   Sparkles,
@@ -30,7 +29,7 @@ const APPLICATION_STEPS: Array<{ step: number; title: string; text: string }> = 
   { step: 2, title: 'Evaluamos las solicitudes', text: 'Revisamos cada caso en función del perfil y armado de la cohorte.' },
   {
     step: 3,
-    title: 'Videollamada de alineación',
+    title: 'Videollamada con Mariano Obligado',
     text: 'Coordinamos una call para conversar y asegurar que el programa vaya a aportar valor.',
   },
   { step: 4, title: 'Avanzamos con el pago e inscripción', text: 'Si hay encaje mutuo, cerramos la inscripción y los próximos pasos operativos.' },
@@ -76,7 +75,7 @@ const PROGRAM_MODULES: Array<{ title: string; icon: React.ReactNode; topics: str
       'Estrategia por fuente',
       'Cómo pensar sourcing como capacidad del área',
       'AI Fluency aplicada a sourcing',
-      'Uso de Claude / ChatGPT para búsquedas, boolean, outreach y enriquecimiento',
+      'Uso de Claude + Cowork para búsquedas, boolean, outreach y enriquecimiento',
     ],
   },
   {
@@ -441,10 +440,9 @@ const TrainingPage: React.FC = () => {
             <div className="lg:col-span-7">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Bot size={18} className="text-primary-500" />, label: 'Claude' },
-                  { icon: <MessageSquareQuote size={18} className="text-primary-500" />, label: 'ChatGPT' },
-                  { icon: <Layers size={18} className="text-primary-500" />, label: 'ATS' },
-                  { icon: <Settings2 size={18} className="text-primary-500" />, label: 'Automatizaciones no-code' },
+                  { icon: <Bot size={18} className="text-primary-500" />, label: 'Claude + Cowork' },
+                  { icon: <Layers size={18} className="text-primary-500" />, label: 'AI Driven ATS Demos' },
+                  { icon: <Settings2 size={18} className="text-primary-500" />, label: 'Custom Vibecoded tools' },
                   { icon: <FileText size={18} className="text-primary-500" />, label: 'Prompts reutilizables' },
                   { icon: <ArrowRight size={18} className="text-primary-500" />, label: 'Agentes aplicados a recruiting' },
                 ].map((tool, i) => (
